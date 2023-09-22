@@ -24,7 +24,7 @@ function LoginForm() {
         event.preventDefault();
         console.log(username, passwd, email, isAdmin);
 
-        const response = await fetch('http://localhost:8081/login', {
+        const response = await fetch('https://backend-task-ra74.onrender.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

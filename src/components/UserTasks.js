@@ -66,7 +66,7 @@ function UserTasks() {
 
     useEffect(() => {
         const getTaskData = async () => {
-            const reqData = await fetch(`http://localhost:8081/getTask/${id}`);
+            const reqData = await fetch(`https://backend-task-ra74.onrender.com/getTask/${id}`);
             const resData = await reqData.json();
             console.log("ResData: ", resData);
             setTaskData(resData.tasks);
@@ -100,7 +100,7 @@ function UserTasks() {
                 tag,
             };
 
-            const response = await fetch(`http://localhost:8081/updateTask/${id}`, {
+            const response = await fetch(`https://backend-task-ra74.onrender.com/updateTask/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ function UserTasks() {
     // Comments
     const handleCommentAdded = async (taskId, userId, comment) => {
         try {
-            const response = await fetch(`http://localhost:8081/comments`, {
+            const response = await fetch(`https://backend-task-ra74.onrender.com/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ function UserTasks() {
             });
 
             if (response.ok) {
-                const commentResponse = await fetch(`http://localhost:8081/comments/${taskId}`);
+                const commentResponse = await fetch(`https://backend-task-ra74.onrender.com/comments/${taskId}`);
                 if (commentResponse.ok) {
                     const commentData = await commentResponse.json();
                     setComments(commentData.comments);

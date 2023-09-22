@@ -1,13 +1,13 @@
 export const getUsersAction = () => {
     return async (dispatch) => {
         try {
-            const response = await fetch('http://localhost:8081/getUsers');
+            const response = await fetch('https://backend-task-ra74.onrender.com/getUsers');
             const userData = await response.json();
 
             // User object = User object + Task count
             const usersAlongWithTaskCounts = await Promise.all(
                 userData.users.map(async (user) => {
-                    const taskCountsResp = await fetch(`http://localhost:8081/getTaskCounts/${user.id}`);
+                    const taskCountsResp = await fetch(`https://backend-task-ra74.onrender.com/getTaskCounts/${user.id}`);
                     const taskCounts = await taskCountsResp.json();
                     return { ...user, taskCounts };
                 })
@@ -24,7 +24,7 @@ export const getUsersAction = () => {
 export const changeAdminStatusAction = (id, isAdmin) => {
     return async (dispatch) => {
         try {
-            const response = await fetch(`http://localhost:8081/updateAdminStatus/${id}`, {
+            const response = await fetch(`https://backend-task-ra74.onrender.com/updateAdminStatus/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

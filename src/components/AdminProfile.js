@@ -60,7 +60,7 @@ function AdminProfile() {
 
     useEffect(() => {
         const getUserData = async () => {
-            const reqData = await fetch(`http://localhost:8081/getUser/${id}`);
+            const reqData = await fetch(`https://backend-task-ra74.onrender.com/getUser/${id}`);
             console.log("Fetched user", reqData);
             const resData = await reqData.json();
             console.log("Fetched user response", resData);
@@ -90,7 +90,7 @@ function AdminProfile() {
                 email
             };
 
-            const response = await fetch(`http://localhost:8081/updateUser/${id}`, {
+            const response = await fetch(`https://backend-task-ra74.onrender.com/updateUser/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

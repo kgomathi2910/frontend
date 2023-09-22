@@ -18,7 +18,7 @@ function AdminDashboard() {
     };
 
     useEffect(() => {
-        fetch('http://localhost:8081/allTaskDist')
+        fetch('https://backend-task-ra74.onrender.com/allTaskDist')
             .then((response) => response.json())
             .then((data) => {
                 if (!data || data.length === 0) {

@@ -23,7 +23,7 @@ function SignupForm() {
         event.preventDefault();
         console.log(username, passwd, email, isAdmin)
 
-        const response = await fetch('http://localhost:8081/signup', {
+        const response = await fetch('https://backend-task-ra74.onrender.com/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

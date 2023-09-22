@@ -81,7 +81,7 @@ function AdminTasks() {
 
     useEffect(() => {
         const getTaskData = async () => {
-            const reqData = await fetch('http://localhost:8081/getTasks');
+            const reqData = await fetch('https://backend-task-ra74.onrender.com/getTasks');
             const resData = await reqData.json();
             console.log("ResData: ", resData);
             setTaskData(resData.tasks);
@@ -126,7 +126,7 @@ function AdminTasks() {
             };
             console.log("new task", newTask);
 
-            const response = await fetch("http://localhost:8081/addTask", {
+            const response = await fetch("https://backend-task-ra74.onrender.com/addTask", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -174,7 +174,7 @@ function AdminTasks() {
                 tag,
             };
 
-            const response = await fetch(`http://localhost:8081/updateTask/${id}`, {
+            const response = await fetch(`https://backend-task-ra74.onrender.com/updateTask/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -209,7 +209,7 @@ function AdminTasks() {
     // Comments
     const handleCommentAdded = async (taskId, userId, comment) => {
         try {
-            const response = await fetch(`http://localhost:8081/comments`, {
+            const response = await fetch(`https://backend-task-ra74.onrender.com/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ function AdminTasks() {
             });
 
             if (response.ok) {
-                const commentResponse = await fetch(`http://localhost:8081/comments/${taskId}`);
+                const commentResponse = await fetch(`https://backend-task-ra74.onrender.com/comments/${taskId}`);
                 if (commentResponse.ok) {
                     const commentData = await commentResponse.json();
                     setComments(commentData.comments);
